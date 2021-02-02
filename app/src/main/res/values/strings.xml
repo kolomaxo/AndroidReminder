@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Reminder</string>
+    <string name="name_new_routine_caption">Name</string>
+    <string name="hint_new_routine_edit">Enter new routine</string>
+    <string name="mon_new_routine_button">Mon</string>
+    <string name="tue_new_routine_button">Tue</string>
+    <string name="wed_new_routine_button">Wed</string>
+    <string name="thu_new_routine_button">Thu</string>
+    <string name="fri_new_routine_button">Fri</string>
+    <string name="sat_new_routine_button">Sat</string>
+    <string name="sun_new_routine_button">Sun</string>
+
 </resources>
