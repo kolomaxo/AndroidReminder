@@ -21,7 +21,7 @@ class CreateNewRoutineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_routine)
 
-        if (weekdayButtons.size == 0) {
+        if (weekdayButtons.size == 0) {  // new array to track activated weekdays buttons
             weekdayButtons.addAll(arrayOf<Button>(
                     findViewById(R.id.buttonMon),
                     findViewById(R.id.buttonTue),
@@ -33,8 +33,7 @@ class CreateNewRoutineActivity : AppCompatActivity() {
             ))
         }
 
-
-        val weekdayButtonListener = View.OnClickListener {
+        val weekdayButtonListener = View.OnClickListener { // on click flip button stance and update tracking array
             val tmp = it.getBackground()
             with(it as Button) {
                 val clickedWeekdayIndex = weekdayButtons.indexOf(this)
@@ -48,7 +47,7 @@ class CreateNewRoutineActivity : AppCompatActivity() {
         }
 
         val  todayWeekdayIndex = LocalDate.now().dayOfWeek.value - 1
-        flipWeekdayState(todayWeekdayIndex)
+        flipWeekdayState(todayWeekdayIndex) //auto click today
     }
 
 
@@ -59,7 +58,7 @@ class CreateNewRoutineActivity : AppCompatActivity() {
     } else {
         val a = TypedValue()
         theme.resolveAttribute(R.attr.colorPrimary, a, true)
-        weekdayButtons[weekdayIndex].background.setTint(a.data)  // works only for colours, not resources. But it do
+        weekdayButtons[weekdayIndex].background.setTint(a.data)  // works only for colours, not resources.
         weekdays[weekdayIndex] = false
     }
 }

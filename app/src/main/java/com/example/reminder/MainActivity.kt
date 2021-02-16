@@ -11,7 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    /** Called when the user taps (+)*/
+    /** Called when the user taps (+)
+     * Opens view to create new routine*/
     fun addNewRoutine(view: View) {
         val intent = Intent(this, CreateNewRoutineActivity::class.java)
         startActivity(intent)
