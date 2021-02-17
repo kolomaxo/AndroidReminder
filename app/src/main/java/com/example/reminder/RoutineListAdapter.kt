@@ -11,10 +11,10 @@ class RoutineListAdapter internal constructor(context: Context)
         : RecyclerView.Adapter<RoutineListAdapter.RoutineViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var routines = emptyList<Routine>() // Cached copy of words
+    private var routines = emptyList<Routine>() // Cached copy of routines
 
     inner class RoutineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val wordItemView: TextView = itemView.findViewById(R.id.textView)
+        val routineItemView: TextView = itemView.findViewById(R.id.nameTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {
@@ -24,7 +24,7 @@ class RoutineListAdapter internal constructor(context: Context)
 
     override fun onBindViewHolder(holder: RoutineViewHolder, position: Int) {
         val current = routines[position]
-        holder.wordItemView.text = current.name
+        holder.routineItemView.text = current.weekDay + " " + current.name
     }
 
     internal fun setRoutines(routines: List<Routine>) {

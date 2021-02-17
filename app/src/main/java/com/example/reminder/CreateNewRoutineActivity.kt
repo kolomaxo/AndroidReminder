@@ -73,7 +73,7 @@ class CreateNewRoutineActivity : AppCompatActivity() {
         val replyIntent = Intent()
         val editActivityName = findViewById<TextView>(R.id.editNewRoutineName)
         routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
-        if(TextUtils.isEmpty(editActivityName.text) || !weekdays.any()) {
+        if(TextUtils.isEmpty(editActivityName.text) || !weekdays.any{bool -> (bool == true)}) {
             setResult(Activity.RESULT_CANCELED, replyIntent)
         } else {
             val activityName = editActivityName.text.toString()
