@@ -22,7 +22,7 @@ class RoutineViewModel(application: Application) : AndroidViewModel(application)
     /*
      * Launching a new coroutine to insert the data in a non-blocking way
      */
-    fun insert(word: Routine) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(word)
+    fun insert(routine: Routine) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(routine)
     }
 }

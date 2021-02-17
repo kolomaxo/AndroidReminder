@@ -1,20 +1,27 @@
 package com.example.reminder
 
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.TypedValue
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.time.DayOfWeek
 import java.time.LocalDate
+import androidx.lifecycle.ViewModelProvider
 
 
 class CreateNewRoutineActivity : AppCompatActivity() {
-    val weekdayButtons = mutableListOf<Button>()
-    val selectedButtonBackground = Color.rgb(233, 30, 99)
+    private val weekdayButtons = mutableListOf<Button>()
+    private val selectedButtonBackground = Color.rgb(233, 30, 99)
     //val availableButtonBackground = Color.rgb(103, 58, 183)
-    val weekdays = BooleanArray(7)
+    private val weekdays = BooleanArray(7)
+    private lateinit var routineViewModel: RoutineViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -61,4 +68,32 @@ class CreateNewRoutineActivity : AppCompatActivity() {
         weekdayButtons[weekdayIndex].background.setTint(a.data)  // works only for colours, not resources.
         weekdays[weekdayIndex] = false
     }
+
+    fun commitNewActivity(view: View) {
+        val replyIntent = Intent()
+        val editActivityName = findViewById<TextView>(R.id.editNewRoutineName)
+        routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
+        if(TextUtils.isEmpty(editActivityName.text) || !weekdays.any()) {
+            setResult(Activity.RESULT_CANCELED, replyIntent)
+        } else {
+            val activityName = editActivityName.text.toString()
+            for (weekdayIndex in 0..6) {
+                if (weekdays[weekdayIndex]) {
+                    val dayName = DayOfWeek.of(weekdayIndex + 1).toString()
+                    val newRoutine = Routine(0, activityName, dayName)
+                    routineViewModel.insert(newRoutine)
+                }
+            }
+            setResult(Activity.RESULT_OK, replyIntent)
+        }
+        finish()
+    }
+
 }
+
+/*
+*            intentData?.let { data ->
+                val word = Routine(data.getStringExtra(CreateNewRoutineActivity.EXTRA_REPLY))
+                wordViewModel.insert(word)
+            }
+ */

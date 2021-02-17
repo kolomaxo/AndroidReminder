@@ -9,5 +9,7 @@
     <string name="fri_new_routine_button">Fri</string>
     <string name="sat_new_routine_button">Sat</string>
     <string name="sun_new_routine_button">Sun</string>
-
+    <string name="confirm_button">Confirm</string>
+    <string name="success_new_routine">New Routine have been planed.</string>
+    <string name="fail_not_saved">Something went wrong. No new Routine created.</string>
 </resources>

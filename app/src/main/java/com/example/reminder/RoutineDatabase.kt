@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import kotlinx.coroutines.CoroutineScope
 
 @Database(entities = arrayOf(Routine::class), version = 1)
 abstract class RoutineDatabase : RoomDatabase() {
@@ -21,11 +23,25 @@ abstract class RoutineDatabase : RoomDatabase() {
                                                     RoutineDatabase::class.java,
                                                     "routine_database")
                                     .fallbackToDestructiveMigration()
+                                    //.addCallback(RoutineDatabaseCallback(scope))
                                     .build()
-                    INSTANCE = instance
                 }
+                INSTANCE = instance
                 return instance
             }
         }
+
+        /*
+        private class RoutineDatabaseCallback(
+            private val scope: CoroutineScope
+        ) : RoomDatabase.Callback() {
+            /**
+             * Override the onOpen method to populate the database.
+             * For this sample, we clear the database every time it is created or opened.
+             */
+            override fun onOpen(db: SupportSQLiteDatabase) {
+                super.onOpen(db)
+            }
+        }*/
     }
 }
