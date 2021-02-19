@@ -24,7 +24,7 @@ class RoutineListAdapter internal constructor(context: Context)
 
     override fun onBindViewHolder(holder: RoutineViewHolder, position: Int) {
         val current = routines[position]
-        holder.routineItemView.text = current.weekDay + " " + current.name
+        holder.routineItemView.text = current.name
     }
 
     internal fun setRoutines(routines: List<Routine>) {

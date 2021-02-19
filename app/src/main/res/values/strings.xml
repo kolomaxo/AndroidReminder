@@ -12,4 +12,7 @@
     <string name="confirm_button">Confirm</string>
     <string name="success_new_routine">New Routine have been planed.</string>
     <string name="fail_not_saved">Something went wrong. No new Routine created.</string>
+    <string name="button_next">Tomorrow &gt;</string>
+    <string name="button_previous">&lt; Yesterday</string>
+
 </resources>

@@ -33,6 +33,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/hint_new_routine_edit"
+            android:imeOptions="actionDone"
             android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -47,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:focusable="auto"
                 android:text="@string/mon_new_routine_button"
                 android:textSize="10sp" />
 
@@ -55,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:focusable="auto"
                 android:text="@string/tue_new_routine_button"
                 android:textSize="10sp" />
 
@@ -63,6 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:focusable="auto"
                 android:text="@string/wed_new_routine_button"
                 android:textSize="10sp" />
 
@@ -71,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:focusable="auto"
                 android:text="@string/thu_new_routine_button"
                 android:textSize="10sp" />
 
@@ -79,6 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:focusable="auto"
                 android:text="@string/fri_new_routine_button"
                 android:textSize="10sp" />
 
@@ -88,6 +94,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
+                android:focusable="auto"
                 android:text="@string/sat_new_routine_button"
                 android:textSize="10sp" />
 
@@ -97,6 +104,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
+                android:focusable="auto"
                 android:text="@string/sun_new_routine_button"
                 android:textSize="10sp" />
         </LinearLayout>

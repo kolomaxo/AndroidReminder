@@ -5,20 +5,26 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.time.DayOfWeek
+import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
 
     private val createNewRoutineActivityRequestCode = 1
     private lateinit var routineViewModel: RoutineViewModel
+    private var currentDayNumber = LocalDate.now().dayOfWeek.value
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setHeaderText()
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val adapter = RoutineListAdapter(this)
@@ -57,7 +63,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showRoutines(view: View) {
+    fun cycleWeekdays(view: View) {
+        val direction = view.tag.toString().toInt()
+        currentDayNumber += direction
+        if (currentDayNumber <= 0) {
+            currentDayNumber += 7
+        } else if (currentDayNumber >= 8){
+            currentDayNumber -= 7
+        }
 
+        setHeaderText()
+        routineViewModel.setRoutinesForWeekday(DayOfWeek.of(currentDayNumber).toString())
+    }
+
+
+    private fun setHeaderText() {
+        val textViewToday = findViewById<TextView>(R.id.textViewToday)
+        textViewToday.text = DayOfWeek.of(currentDayNumber).toString()
     }
 }
