@@ -14,5 +14,6 @@
     <string name="fail_not_saved">Something went wrong. No new Routine created.</string>
     <string name="button_next">Tomorrow &gt;</string>
     <string name="button_previous">&lt; Yesterday</string>
+    <string name="popup_menu_item_delete">Delete</string>
 
 </resources>
