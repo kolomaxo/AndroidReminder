@@ -33,4 +33,8 @@ class RoutineViewModel(application: Application) : AndroidViewModel(application)
         selectedDay.value = weekDay
         repository.setRoutinesForWeekday(selectedDay.value)
     }
+    
+    fun delete(uid: Int) = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(uid)
+    }
 }

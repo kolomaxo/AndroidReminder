@@ -3,6 +3,7 @@ package com.example.reminder
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.TextView
@@ -86,6 +87,14 @@ class MainActivity : AppCompatActivity() {
     fun showPopUpMenu(view: View) {
         val popupMenu = PopupMenu(this, view)
         popupMenu.menuInflater.inflate(R.menu.popup_main, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
+            when (item!!.itemId) {
+                R.id.item_delete -> {
+                    routineViewModel.delete(view.tag.toString().toInt())
+                }
+            }
+            true
+        })
         popupMenu.show()
     }
 }

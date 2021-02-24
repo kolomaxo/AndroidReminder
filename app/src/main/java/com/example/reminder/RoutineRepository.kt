@@ -24,4 +24,9 @@ class RoutineRepository(private val routineDAO: RoutineDAO) {
             selectedDay.value = weekDay!!
         }
     }
+
+    @WorkerThread
+    suspend fun delete(uid: Int) {
+        routineDAO.delete(uid)
+    }
 }

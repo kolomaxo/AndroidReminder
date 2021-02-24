@@ -90,10 +90,3 @@ class CreateNewRoutineActivity : AppCompatActivity() {
     }
 
 }
-
-/*
-*            intentData?.let { data ->
-                val word = Routine(data.getStringExtra(CreateNewRoutineActivity.EXTRA_REPLY))
-                wordViewModel.insert(word)
-            }
- */

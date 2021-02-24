@@ -19,4 +19,7 @@ interface RoutineDAO {
 
     @Query("DELETE FROM routines_table")
     fun deleteAll()
+
+    @Query("DELETE FROM routines_table WHERE uid = :uid")
+    fun delete(uid: Int)
 }
