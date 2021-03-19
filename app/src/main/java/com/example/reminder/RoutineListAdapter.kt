@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -14,7 +15,7 @@ class RoutineListAdapter internal constructor(context: Context)
     private var routines = emptyList<Routine>() // Cached copy of routines
 
     inner class RoutineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val routineItemView: TextView = itemView.findViewById(R.id.nameTextView)
+        val routineItemView: CheckBox = itemView.findViewById(R.id.routineCheckBox)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {

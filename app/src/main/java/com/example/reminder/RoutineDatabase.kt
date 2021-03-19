@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 
-@Database(entities = arrayOf(Routine::class), version = 1)
+@Database(entities = arrayOf(Routine::class), version = 2)
 abstract class RoutineDatabase : RoomDatabase() {
     abstract fun routineDAO(): RoutineDAO
 
@@ -30,18 +30,5 @@ abstract class RoutineDatabase : RoomDatabase() {
                 return instance
             }
         }
-
-        /*
-        private class RoutineDatabaseCallback(
-            private val scope: CoroutineScope
-        ) : RoomDatabase.Callback() {
-            /**
-             * Override the onOpen method to populate the database.
-             * For this sample, we clear the database every time it is created or opened.
-             */
-            override fun onOpen(db: SupportSQLiteDatabase) {
-                super.onOpen(db)
-            }
-        }*/
     }
 }
